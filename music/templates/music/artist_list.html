@@ -1,0 +1,16 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<h1>👨‍🎤 Lista Artiștilor</h1>
+
+{% if artists %}
+    <ul>
+        {% for artist in artists %}
+            <li>{{ artist.name }} - {{ artist.country }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nu există artiști în baza de date.</p>
+{% endif %}
+{% endblock %}
+

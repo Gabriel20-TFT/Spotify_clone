@@ -1,0 +1,27 @@
+<h1>{{ playlist.name }}</h1>
+<p>User: {{ playlist.user.username }}</p>
+
+<h2>Songs in Playlist</h2>
+<ul>
+{% for song in songs %}
+    <li>
+        {{ song.title }} (Album: {{ song.album.title }})
+        <a href="{% url 'remove_song_from_playlist' playlist.id song.id %}">Remove</a>
+    </li>
+{% endfor %}
+</ul>
+
+<h2>Add Songs</h2>
+<ul>
+{% for song in song_list %}
+    {% if song not in songs %}
+    <li>
+        {{ song.title }} (Album: {{ song.album.title }})
+        <a href="{% url 'add_song_to_playlist' playlist.id song.id %}">Add</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<a href="{% url 'playlist_list' %}">Back to Playlists</a>
+

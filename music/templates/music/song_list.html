@@ -1,0 +1,32 @@
+{% extends "music/base.html" %}
+{% block content %}
+<h1>🎧 Lista Melodii</h1>
+
+<div class="song-list">
+    {% for song in songs %}
+    <div class="song-card">
+        {% if song.cover_image %}
+            <img src="{{ song.cover_image.url }}" alt="{{ song.title }}" class="cover" width="200">
+        {% endif %}
+        <h3><a href="{% url 'song_detail' song.id %}">{{ song.title }}</a></h3>
+
+        {% if song.artist %}
+            <p>👤 {{ song.artist.name }}</p>
+        {% endif %}
+
+        {% if song.audio_file %}
+            <audio controls>
+                <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                Browserul tău nu suportă redarea audio.
+            </audio>
+            <br>
+            <a href="{{ song.audio_file.url }}" download class="download-btn">⬇️ Descarcă</a>
+        {% else %}
+            <p>⚠️ Niciun fișier audio încărcat.</p>
+        {% endif %}
+    </div>
+    {% empty %}
+        <p>Nu există melodii disponibile.</p>
+    {% endfor %}
+</div>
+{% endblock %}

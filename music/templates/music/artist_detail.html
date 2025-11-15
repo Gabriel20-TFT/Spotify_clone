@@ -1,0 +1,11 @@
+<h1>{{ artist.name }}</h1>
+<p>{{ artist.bio }}</p>
+
+<h2>Albums</h2>
+<ul>
+{% for album in albums %}
+    <li><a href="{% url 'album_detail' album.id %}">{{ album.title }}</a></li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'artist_list' %}">Back to Artists</a>

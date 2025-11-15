@@ -1,0 +1,26 @@
+{% extends 'music/base.html' %}
+
+{% block title %}Bun venit - Music App{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 100px;">
+    <h1>🎵 Bine ai venit la Music Library 🎶</h1>
+    <p>Gestionează melodiile tale preferate, artiștii și playlist-urile într-un singur loc.</p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'song_list' %}"
+           style="background-color:#6cf; color:#000; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
+           🚀 Intră în aplicație
+        </a>
+    {% else %}
+        <a href="{% url 'login' %}"
+           style="background-color:#6cf; color:#000; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold; margin-right:10px;">
+           🔑 Login
+        </a>
+        <a href="{% url 'register' %}"
+           style="background-color:#4caf50; color:#fff; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
+           📝 Înregistrează-te
+        </a>
+    {% endif %}
+</div>
+{% endblock %}

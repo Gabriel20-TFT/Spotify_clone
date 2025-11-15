@@ -1,0 +1,18 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<h1>Playlist-uri</h1>
+
+<ul>
+    {% for playlist in playlists %}
+        <li>
+            <a href="{% url 'playlist_detail' playlist.id %}">{{ playlist.name }}</a>
+            - creat de {{ playlist.user.username }}
+        </li>
+    {% empty %}
+        <li>Nu există playlist-uri.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Înapoi la Home</a>
+{% endblock %}

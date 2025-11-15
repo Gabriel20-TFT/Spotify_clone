@@ -1,0 +1,30 @@
+{% extends 'music/base.html' %}
+{% block content %}
+<h2>{{ song.title }}</h2>
+
+{% if song.cover_image %}
+    <img src="{{ song.cover_image.url }}" alt="{{ song.title }}" width="250">
+{% endif %}
+
+<p><strong>Artiști:</strong>
+{% for artist in song.artists.all %}
+    {{ artist.name }}{% if not forloop.last %}, {% endif %}
+{% endfor %}
+</p>
+
+{% if song.album %}
+<p><strong>Album:</strong> {{ song.album.title }}</p>
+{% endif %}
+
+{% if song.audio_file %}
+    <audio controls style="width: 100%; max-width: 500px;">
+        <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+        Browserul tău nu suportă audio.
+    </audio>
+    <br>
+    <a href="{{ song.audio_file.url }}" download>⬇️ Descarcă melodia</a>
+    <a href="{% url 'download_song' song.id %}" class="btn btn-outline-light">Descarcă</a>
+{% else %}
+    <p>⚠️ Niciun fișier audio încărcat.</p>
+{% endif %}
+{% endblock %}

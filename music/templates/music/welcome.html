@@ -1,0 +1,28 @@
+{% extends 'music/base.html' %}
+
+{% block title %}Bun venit în Music App{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 80px;">
+    <h1>🎶 Bine ai venit în <span style="color:#6cf;">Music Library</span>!</h1>
+    <p style="font-size: 1.2em; color: #bbb;">
+        Ascultă, încarcă și gestionează melodiile tale preferate într-o aplicație creată special pentru tine.
+    </p>
+
+    <div style="margin-top: 40px;">
+        <a href="{% url 'login' %}"
+           style="background: #6cf; color: black; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+           🔑 Login
+        </a>
+
+        <a href="{% url 'register' %}"
+           style="background: #4CAF50; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-left: 20px;">
+           📝 Creează cont
+        </a>
+    </div>
+
+    <p style="margin-top: 60px; color: #777;">
+        Aplicație dezvoltată de <strong>Gabriel Buga</strong> 🎧
+    </p>
+</div>
+{% endblock %}

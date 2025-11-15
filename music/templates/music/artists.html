@@ -1,0 +1,25 @@
+{% extends 'music/base.html' %}
+{% block title %}Artiști{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Lista Artiștilor</h2>
+
+    {% if artists %}
+        <div class="row">
+            {% for artist in artists %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ artist.name }}</h5>
+                            <p class="card-text">{{ artist.genre }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">Momentan nu există artiști în baza de date.</p>
+    {% endif %}
+</div>
+{% endblock %}

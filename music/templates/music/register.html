@@ -1,0 +1,12 @@
+{% extends 'music/base.html' %}
+{% block content %}
+<h2>📝 Creează un cont</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Înregistrează-te</button>
+</form>
+
+<p>Ai deja cont? <a href="{% url 'login' %}">Autentifică-te aici</a>.</p>
+{% endblock %}
