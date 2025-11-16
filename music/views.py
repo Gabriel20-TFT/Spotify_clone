@@ -296,3 +296,19 @@ def download_song(request, song_id):
     if mime_type:
         response['Content-Type'] = mime_type
     return response
+
+@login_required(login_url='login')
+def statistics(request):
+    try:
+        stats = {
+            'total_artists': Artist.objects.count(),
+            'total_albums': Album.objects.count(),
+            'total_songs': Song.objects.count(),
+            'total_playlists': Playlist.objects.filter(user=request.user).count(),
+            'my_songs_count': Playlist.objects.filter(user=request.user).values_list('songs', flat=True).distinct().count(),
+        }
+        return render(request, 'music/statistics.html', {'stats': stats})
+    except Exception as e:
+        logger.exception("Eroare la statistics")
+        messages.error(request, f'Eroare la încărcarea statisticilor: {e}')
+        return redirect('index')

@@ -1,0 +1,56 @@
+{% extends 'music/base.html' %}
+{% block title %}Statistici{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📊 Statistici Spotify Clone</h2>
+
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fa-solid fa-user-music fa-3x text-primary mb-3"></i>
+                    <h3 class="card-title">{{ stats.total_artists }}</h3>
+                    <p class="card-text">Artiști</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fa-solid fa-compact-disc fa-3x text-success mb-3"></i>
+                    <h3 class="card-title">{{ stats.total_albums }}</h3>
+                    <p class="card-text">Albume</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fa-solid fa-music fa-3x text-warning mb-3"></i>
+                    <h3 class="card-title">{{ stats.total_songs }}</h3>
+                    <p class="card-text">Melodii</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fa-solid fa-list fa-3x text-danger mb-3"></i>
+                    <h3 class="card-title">{{ stats.total_playlists }}</h3>
+                    <p class="card-text">Playlist-urile Mele</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'index' %}" class="btn btn-primary">
+            <i class="fa-solid fa-home"></i> Înapoi la Pagina Principală
+        </a>
+    </div>
+</div>
+{% endblock %}

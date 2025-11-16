@@ -42,8 +42,46 @@ Scopul aplicației este de a demonstra conceptele fundamentale ale framework-ulu
 ---
 
 ## 🛠️ Instalare și rulare
+1. **Instalează dependențele:**
+```bash
+   pip install -r requirements.txt
+```
 
-1. **Clonează proiectul**
-   ```bash
-   git clone https://github.com/<user>/spotify_clone.git
-   cd spotify_clone
+2. **Configurează fișierul `.env`:**
+   Creează fișier `.env` în root:
+```
+   SECRET_KEY=your-secret-key
+   DEBUG=True
+   DB_NAME=spotify_clone
+   DB_USER=root
+   DB_PASSWORD=parola_ta
+   DB_HOST=localhost
+   DB_PORT=3306
+```
+
+3. **Creează baza de date MySQL:**
+```sql
+   CREATE DATABASE spotify_clone;
+```
+
+4. **Rulează migrările:**
+```bash
+   python manage.py makemigrations
+   python manage.py migrate
+```
+
+5. **Creează superuser:**
+```bash
+   python manage.py createsuperuser
+```
+
+6. **Pornește serverul:**
+```bash
+   python manage.py runserver
+```
+
+7. **Accesează aplicația:**
+   - Frontend: http://localhost:8000
+   - Admin: http://localhost:8000/admin
+
+

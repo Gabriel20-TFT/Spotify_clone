@@ -135,7 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'welcome'
 LOGIN_URL = 'login'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # === CONFIGURARE LOGGING ===
 # Creează folderul pentru loguri (dacă nu există)
 LOG_DIR = BASE_DIR / 'logs'
